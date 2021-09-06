@@ -20,22 +20,28 @@ var generatePassword = function() {
     numeric: false
   }
 
+  let characters = [];
+
   console.log(passwordObj.length);
   passwordObj.uppercase = window.confirm("Do you want to include uppercase letters?");
   passwordObj.lowercase = window.confirm("Do you want to include lowercase letters?");
   passwordObj.special = window.confirm("Do you want to include special characters?");
   passwordObj.numeric = window.confirm("Do you want to include numbers?");
 
+  if (passwordObj.uppercase) {
+    characters += upperLetters;
+    console.log(characters);
+    console.log(characters[0]);
+  }
+
+  // use the if's to add to the arrays if confirmed and make sure to loop back somehow if none are confirmed
+
   for (let i = 0; i < passwordObj.length; i++) {
-    passwordObj.password[i] = generateCharacter();
+    
   }
   
   passwordObj.password = passwordObj.password.join("");
   return passwordObj.password;
-}
-
-var generateCharacter = function() {
-  return "a";
 }
 
 var passwordLength = function() {
@@ -58,6 +64,6 @@ const uppercaseLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K",
 const lowercaseLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
 const symbols = ["!", "@", "#", "$", "%", "^", "&","*", "(", ")", "-", "+", "=", ":", "<", ">", "?"]
-
+const upperLetters = ["asdkfslkj"];
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
