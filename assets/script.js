@@ -21,12 +21,14 @@ var generatePassword = function() {
   }
 
   let characters = [];
-
-  console.log(passwordObj.length);
-  passwordObj.uppercase = window.confirm("Do you want to include uppercase letters?");
-  passwordObj.lowercase = window.confirm("Do you want to include lowercase letters?");
-  passwordObj.special = window.confirm("Do you want to include special characters?");
-  passwordObj.numeric = window.confirm("Do you want to include numbers?");
+  
+  while (!passwordObj.uppercase && !passwordObj.lowercase && !passwordObj.special && !passwordObj.numeric) {
+    window.alert("Please choose at least one out of the four following prompts.");
+    passwordObj.uppercase = window.confirm("Do you want to include uppercase letters?");
+    passwordObj.lowercase = window.confirm("Do you want to include lowercase letters?");
+    passwordObj.special = window.confirm("Do you want to include special characters?");
+    passwordObj.numeric = window.confirm("Do you want to include numbers?");
+  }
 
   if (passwordObj.uppercase) {
     characters += uppercaseLetters;
@@ -40,7 +42,6 @@ var generatePassword = function() {
   if (passwordObj.numeric) {
     characters += numbers;
   }
-  console.log(characters);
 
   // use the if's to add to the arrays if confirmed and make sure to loop back somehow if none are confirmed
 
