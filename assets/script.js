@@ -12,7 +12,7 @@ function writePassword() {
 
 var generatePassword = function() {
   let passwordObj = {
-    password: "",
+    password: [],
     length: passwordLength(),
     uppercase: false,
     lowercase: false,
@@ -26,10 +26,16 @@ var generatePassword = function() {
   passwordObj.special = window.confirm("Do you want to include special characters?");
   passwordObj.numeric = window.confirm("Do you want to include numbers?");
 
+  for (let i = 0; i < passwordObj.length; i++) {
+    passwordObj.password[i] = generateCharacter();
+  }
   
+  passwordObj.password = passwordObj.password.join("");
+  return passwordObj.password;
+}
 
-
-  return newPassword;
+var generateCharacter = function() {
+  return "a";
 }
 
 var passwordLength = function() {
@@ -37,6 +43,10 @@ var passwordLength = function() {
   while (desiredLength < 8 || desiredLength > 128) {
     desiredLength = window.prompt("How many characters do you need your password to be?");
     desiredLength = parseInt(desiredLength);
+    isNotNumber = Number.isNaN(desiredLength);
+    if(isNotNumber){
+      desiredLength = 0;
+    }
     if (desiredLength < 8 || desiredLength > 128) {
       window.alert("Please enter a password length between 8 and 128.");
     }
