@@ -7,5 +7,6 @@ User will first type how long they want their password to be then will be prompt
 
 Link to the site: https://chaldrich24.github.io/password-generator/ 
 
-Screenshots:
+Screenshot:
+
 ![screenshot of website](./assets/Images/site-screenshot.png)
